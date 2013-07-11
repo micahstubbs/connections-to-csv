@@ -1,0 +1,17 @@
+<% provide(:title, 'Home') %>
+<% @user = User.new %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Connections to CSV | <%= yield(:title) %></title>
+  </head>
+  <body>
+    <h1>Connections to CSV</h1>
+    <p>
+      retrieve all of the mutual connections you share with your 1st degree connections as a csv file.  you can use this to create a nifty visualization of your social network with <a href="https://gephi.org/">Gephi.</a>
+    </p>
+    <div>
+        <h4><%= link_to "Sign in with LinkedIn", "/auth/linkedin_oauth2" %></h4>
+    </div>
+  </body>
+</html>
