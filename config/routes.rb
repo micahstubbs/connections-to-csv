@@ -1,6 +1,14 @@
 ConnectionsToCsv::Application.routes.draw do
-  resources :users
+  
+  root to: "static_pages#home"
+  get "home", to: "static_pages#home"
 
+  resources :users
+  
+  
+  match 'auth/:provider/callback', to: 'sessions#create', as: 'sessions_url'
+  match 'signout', to: 'sessions#destroy', as: 'signout'
+  match 'auth/failure', to: redirect('/')
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
