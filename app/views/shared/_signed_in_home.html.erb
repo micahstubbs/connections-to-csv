@@ -1,12 +1,5 @@
 <% provide(:title, 'Home') %>
 
-<% email = "" %>
-
-<% v = User.where("id = ?", current_user.id).all %>
-<% v.each do |u| %>
-  <% email = u.email %>
-<% end %>
-
 
 <!DOCTYPE html>
 <html>
@@ -15,8 +8,21 @@
   </head>
   <body>
     <h1>Connections to CSV</h1>
+    <br>
     <p>
-      thanks!  now that you are have authorized ConnectionsToCSV to access your LinkedIn account, it will begin retrieving your mutual connections.  When it's done, it will email them to you at <%= email %>
+      thanks!  now that you are have authorized ConnectionsToCSV to access your LinkedIn account, it will begin retrieving your mutual connections.  When it's done, it will email them to you at <%= current_user.email %>
     </p>
+    <br>
+    <div class="row-fluid">
+      <div class ="span3">
+        <div>
+          <%= link_to "users/#{current_user.id}/edit" do %>
+           <button class="btn btn-primary">update email address</button>
+          <% end %>
+        </div>
+      </div>
+      <div class="span9"></div>
+    </div>
+
   </body>
 </html>
