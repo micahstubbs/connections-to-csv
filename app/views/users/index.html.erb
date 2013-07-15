@@ -6,6 +6,8 @@
     <th>Provider</th>
     <th>uid</th>
     <th>Name</th>
+    <th>Token</th>
+    <th>Secret</th>
   </tr>
 
 <% @users.each do |user| %>
@@ -14,6 +16,8 @@
     <td><%= user.provider %></td>
     <td><%= user.uid %></td>
     <td><%= user.name %></td>
+    <td><%= user.token %></td>
+    <td><%= user.secret %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
